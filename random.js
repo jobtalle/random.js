@@ -4,7 +4,7 @@ export class Random {
      * @returns {number} A valid random seed
      */
     static makeSeed() {
-        return Math.floor(Math.random() * 0x100000000);
+        return Math.trunc(Math.random() * 0x100000000);
     }
 
     /**
@@ -22,7 +22,7 @@ export class Random {
      */
     shuffle(array) {
         for (let index = array.length; index-- > 0;) {
-            const randomIndex = Math.floor(this.float * (index + 1));
+            const randomIndex = Math.trunc(this.float * (index + 1));
 
             [array[index], array[randomIndex]] = [array[randomIndex], array[index]];
         }
